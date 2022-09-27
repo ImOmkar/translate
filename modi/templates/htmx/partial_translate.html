@@ -2,20 +2,19 @@
 
 <label
   for="message"
-  class="block mb-2 text-xl text-center font-bold text-gray-900"
+  class="block mb-2 text-xl text-center text-white font-bold"
   >देवनागरीलिपीतून मोडिलिपीत रूपांतर करा.</label
 >
 <form x-cloak x-data="{ translate_form: '' }">
   {% csrf_token %}
-  <div class="border px-4 py-4 rounded-3xl">
+  <div class="border border-gray-600 px-4 py-4 rounded-3xl">
     <textarea
       x-data
       x-grow
       x-model="translate_form"
       name="text_data"
       id="message"
-      rows="4"
-      class="resize-none block w-full focus:outline-none p-1 text-xl"
+      class="resize-none block bg-gray-900 text-white w-full focus:outline-none p-1 text-xl"
       placeholder="तुमचा मजकूर येथे लिहा..."
       required
     ></textarea>

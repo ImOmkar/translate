@@ -1,4 +1,3 @@
-
 {% load widget_tweaks %}
 
 <html>
@@ -13,11 +12,59 @@
     <script src="https://cdn.tailwindcss.com"></script>
     {% include 'css_cdns/css.html' %}
   </head>
-  <body>
-    {% block content %} 
+  <body class="bg-gray-900">
+    <!--
+  This component uses @tailwindcss/forms
 
-    {% endblock content %}
+  yarn add @tailwindcss/forms
+  npm install @tailwindcss/forms
 
-    {% include 'js_cdns/js.html' %}
+  plugins: [require('@tailwindcss/forms')]
+-->
+
+    <header class="shadow-sm">
+      <nav
+        class="flex justify-center gap-4 items-center border-b border-gray-600 p-3 overflow-x-auto font-medium"
+      >
+        <a
+          class="text-white"
+          href="https://twitter.com/om211196"
+          ><svg
+            class="w-6 h-6"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z"
+            /></svg
+        ></a>
+        <a
+          class="text-3xl -mb-3 text-white"
+          href="https://thelekhani.com"
+          >𑘩𑘹</a
+        >
+        <a class="text-white" href="https://github.com/ImOmkar/translate">
+          <svg
+            class="w-6 h-6"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </a>
+        <a class="text-white text-xl -mb-3 font-bold" href="https://fonts.google.com/noto/specimen/Noto+Sans+Modi?query=modi">
+          MoDi font
+          </svg>
+        </a>
+      </nav>
+    </header>
+
+    {% block content %} {% endblock content %} {% include 'js_cdns/js.html' %}
   </body>
 </html>
