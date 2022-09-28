@@ -7,7 +7,7 @@ def convert(quote, fg, image, border_color, font_file=None, font_size=None,width
         
     sentence = f"{quote}"
     
-    quote = ImageFont.truetype(font_file if font_file else "F:\\omkar\\translate\\env\\src\\translate\\modi\\templates\\fonts\\NotoSansModi-Regular.ttf", font_size if font_size else 32)
+    quote = ImageFont.truetype(font_file if font_file else "static/fonts/NotoSansModi-Regular.ttf", font_size if font_size else 32)
 
     img = Image.new("RGB", (x1, y1), color=(255,255,255))
 

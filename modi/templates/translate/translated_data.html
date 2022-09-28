@@ -1,3 +1,5 @@
+{% load static %}
+
 <div id="translated_text">
   {% if translated_data %}
   <div class="block mb-2 text-xl text-white text-center font-bold">
@@ -12,7 +14,9 @@
       </button>
     </div>
     <span id="data" class="text-white text-xl">{{ translated_data }}</span>
-    <!--<img src="F:\\omkar\\translate\\env\\src\\translate\\modi\\templates\\generated_images\\quote.png" class="w-full mt-2 rounded-2xl">-->
+    <a href="{% static 'images/generated_images/quote.png' %}" download>
+      <img src="{% static 'images/generated_images/quote.png' %}" class="w-full mt-2 rounded-2xl">
+    </a>
   </div>
   {% endif %}
 </div>
