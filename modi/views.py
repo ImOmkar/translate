@@ -16,6 +16,14 @@ from .forms import TranslateForm
 # Create your views here.
 
 
+
+#error view
+def error_404_view(request, exception):
+    return render(request, 'error_pages/404.html')
+#error view
+
+
+
 def home(request):
     return render(request, 'translate/home.html')
 
