@@ -24,4 +24,5 @@ sqlparse==0.4.3
 tzdata==2022.2
 unicodedata2==14.0.0
 urllib3==1.26.12
+whitenoise==6.2.0
 wrapt==1.14.1
