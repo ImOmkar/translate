@@ -1,8 +1,8 @@
 # अक्षरमुखची API वापरुन देवनागरीलिपीतून मोडीलिपीत रूपांतर करणारा Django App. 
 
-![alt text](ek.png)
+![alt text](pahila_ss.png)
 
 ### मोडीलिपीत लिहिलेलं .png प्रकारच्या चित्रात मिळवणंसुद्धा शक्य. 
 
-![alt text](don.png)
+![alt text](dusara_ss.png)
 
