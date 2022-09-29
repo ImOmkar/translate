@@ -16,6 +16,7 @@ lxml==4.9.1
 marisa-trie==0.7.7
 Pillow==9.2.0
 pykakasi==2.2.1
+python-decouple==3.6
 PyYAML==6.0
 regex==2022.9.13
 requests==2.28.1

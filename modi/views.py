@@ -1,16 +1,9 @@
-import os
-from multiprocessing import context
-import re
 import requests
 from django.shortcuts import render
 
-# aksharamukha import
-from aksharamukha import transliterate
-
-# html to image
+# to generate image
 from .quote2image import convert
 
-from django.templatetags.static import static
 # Create your views here.
 
 
@@ -21,13 +14,11 @@ def error_404_view(request, exception):
 #error view
 
 
-
 def home(request):
     return render(request, 'translate/home.html')
 
 
 def translate(request):
-    #transliterate.process(src, tgt, txt, nativize = True, pre_options = [], post_options = [])
     text = request.POST.get('text_data')
     translated_data = requests.get(f'http://aksharamukha-plugin.appspot.com/api/public?source=Devanagari&target=Modi&text={text}')
 
