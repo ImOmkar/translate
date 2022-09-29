@@ -11,10 +11,6 @@ from aksharamukha import transliterate
 from .quote2image import convert
 
 from django.templatetags.static import static
-
-#import form
-from .forms import TranslateForm
-
 # Create your views here.
 
 
@@ -35,12 +31,11 @@ def translate(request):
     text = request.POST.get('text_data')
     translated_data = requests.get(f'http://aksharamukha-plugin.appspot.com/api/public?source=Devanagari&target=Modi&text={text}')
 
-    image = static('images/background_img.jpg')
     # Font Size Default to 32, Height and Width by default is 612
     img=convert(
         quote=translated_data.text,
         fg="white",
-        image="static/images/background_img.jpg",
+        image="staticfiles/images/background_img.jpg",
         border_color="black",
         font_size=50,
         font_file=None,
@@ -48,7 +43,7 @@ def translate(request):
         height=450)
 
     # Save The Image as a Png file
-    generated_image = img.save("static/images/generated_images/quote.png")
+    generated_image = img.save("staticfiles/images/generated_images/quote.png")
 
     context = {
         "translated_data": translated_data.text,
