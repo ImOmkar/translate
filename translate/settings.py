@@ -9,31 +9,16 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-import environ
-import os
-
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-env = environ.Env(
-    # set casting, default value
-    DEBUG=(bool, False)
-)
-
-
-# Take environment variables from .env file
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
-
-# False if not in os.environ because of casting above
-DEBUG = env('DEBUG')
-SECRET_KEY = env('SECRET_KEY')
-
-
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = False 
+DEBUG = False 
+
+SECRET_KEY = 'django-insecure-fm##*@83cs00ss**19cfpb@ufcu*k*6*gz=$2-rc18bl&7p+9h'
 
 ALLOWED_HOSTS = ['django-env.eba-p38d3bpq.us-west-2.elasticbeanstalk.com', '*']
 
