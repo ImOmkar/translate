@@ -12,6 +12,7 @@ django-browser-reload==1.6.0
 django-widget-tweaks==1.4.12
 fonttools==4.37.3
 future==0.16.0
+gunicorn==20.1.0
 idna==3.4
 imgkit==1.2.2
 jaconv==0.3
