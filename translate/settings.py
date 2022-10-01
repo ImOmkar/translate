@@ -9,6 +9,9 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+import os
+import dotenv
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -16,9 +19,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False 
 
-SECRET_KEY = 'django-insecure-fm##*@83cs00ss**19cfpb@ufcu*k*6*gz=$2-rc18bl&7p+9h'
+# Add .env variables anywhere before SECRET_KEY
+dotenv_file = os.path.join(BASE_DIR, ".env")
+if os.path.isfile(dotenv_file):
+    dotenv.load_dotenv(dotenv_file)
+
+DEBUG = os.environ['DEBUG'] 
+
+SECRET_KEY = os.environ['SECRET_KEY']
 
 ALLOWED_HOSTS = ['django-env.eba-p38d3bpq.us-west-2.elasticbeanstalk.com', '*']
 
@@ -34,7 +43,7 @@ INSTALLED_APPS = [
 
     "whitenoise.runserver_nostatic",
 
-    #'django.contrib.staticfiles',
+    'django.contrib.staticfiles',    
 
     'modi',
     'widget_tweaks',
@@ -117,11 +126,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+
+
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]  
 STATIC_ROOT = BASE_DIR / "staticfiles"
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  # new
-STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  # new
+#STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 
 
 # Default primary key field type
