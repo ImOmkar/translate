@@ -9,8 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-import os
-import dotenv
+
 
 from pathlib import Path
 
@@ -20,14 +19,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-# Add .env variables anywhere before SECRET_KEY
-dotenv_file = os.path.join(BASE_DIR, ".env")
-if os.path.isfile(dotenv_file):
-    dotenv.load_dotenv(dotenv_file)
-
 DEBUG = False  
 
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = 'django-insecure-fm##*@83cs00ss**19cfpb@ufcu*k*6*gz=$2-rc18bl&7p+9h'
 
 ALLOWED_HOSTS = ['django-env.eba-p38d3bpq.us-west-2.elasticbeanstalk.com', '*']
 
