@@ -25,7 +25,7 @@ dotenv_file = os.path.join(BASE_DIR, ".env")
 if os.path.isfile(dotenv_file):
     dotenv.load_dotenv(dotenv_file)
 
-DEBUG = os.environ['DEBUG'] 
+DEBUG = False  
 
 SECRET_KEY = os.environ['SECRET_KEY']
 
@@ -43,7 +43,7 @@ INSTALLED_APPS = [
 
     "whitenoise.runserver_nostatic",
 
-    'django.contrib.staticfiles',    
+    #'django.contrib.staticfiles',    
 
     'modi',
     'widget_tweaks',
