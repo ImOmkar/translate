@@ -8,15 +8,12 @@
   <div class="border border-gray-600 px-6 py-6 rounded-3xl">
     <div class="flex justify-end">
       <button
-        _="on click writeText({{ translated_data }}) into the navigator's clipboard
+        _="on click writeText('{{ translated_data }}') into the navigator's clipboard
           put '✔️' into me wait 1s put '📋' into me">
           📋
       </button>
     </div>
     <div class="text-white text-xl">{{ translated_data }}</div>
-    <a href="{% static 'images/generated_images/quote.png' %}" download>
-      <img src="{% static 'images/generated_images/quote.png' %}" class="w-full mt-2 rounded-2xl">
-    </a>
   </div>
   {% endif %}
 </div>
