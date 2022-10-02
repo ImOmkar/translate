@@ -23,7 +23,7 @@ def translate(request):
     translated_data = requests.get(f'http://aksharamukha-plugin.appspot.com/api/public?source=Devanagari&target=Modi&text={text}')
 
     # Font Size Default to 32, Height and Width by default is 612
-    '''img=convert(
+    img=convert(
         quote=translated_data.text,
         fg="white",
         image="staticfiles/images/background_img.jpg",
@@ -34,11 +34,11 @@ def translate(request):
         height=450)
 
     # Save The Image as a Png file
-    generated_image = img.save("staticfiles/images/generated_images/quote.png")'''
+    generated_image = img.save("staticfiles/images/generated_images/quote.png")
 
     context = {
         "translated_data": translated_data.text,
-        #"generated_image": generated_image
+        "generated_image": generated_image
     }
     return render(request, 'translate/translated_data.html', context)
 
