@@ -25,8 +25,6 @@ SECRET_KEY = os.environ['SECRET_KEY']
 
 ALLOWED_HOSTS = ['django-env.eba-p38d3bpq.us-west-2.elasticbeanstalk.com', '*']
 
-CSRF_TRUSTED_ORIGINS=['django-env.eba-p38d3bpq.us-west-2.elasticbeanstalk.com', '*']
-
 
 # Application definition
 
@@ -127,8 +125,8 @@ USE_TZ = True
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]  
 STATIC_ROOT = BASE_DIR / "staticfiles"
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  # new
-#STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  # new
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 
 
 # Default primary key field type
