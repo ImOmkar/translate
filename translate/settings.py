@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'widget_tweaks',
 
     'clearcache',
-    'django.contrib.admin',
 ]
 
 MIDDLEWARE = [
