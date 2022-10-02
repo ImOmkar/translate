@@ -5,7 +5,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/clearcache/', include('clearcache.urls')),
+    path('devToModi/clearcache/', include('clearcache.urls')),
     path('devToModi/', admin.site.urls),
     path('', include('modi.urls')),
 
