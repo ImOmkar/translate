@@ -25,6 +25,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 
 ALLOWED_HOSTS = ['django-env.eba-p38d3bpq.us-west-2.elasticbeanstalk.com', '*']
 
+CSRF_TRUSTED_ORIGINS = ['django-env.eba-p38d3bpq.us-west-2.elasticbeanstalk.com']
 
 # Application definition
 
