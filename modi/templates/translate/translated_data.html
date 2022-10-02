@@ -7,13 +7,15 @@
   </div>
   <div class="border border-gray-600 px-6 py-6 rounded-3xl">
     <div class="flex justify-end">
-      <button
-        _="on click writeText({{ translated_data }}) into the navigator's clipboard
-          put '✔️' into me wait 1s put '📋' into me">
-          📋
+      <button _="on click
+        writeText('{{ translated_data }}') into the navigator's clipboard
+        put '✔️' into me
+        wait 1s
+        put '📋' into me">
+        📋 
       </button>
     </div>
-    <div id="data" class="text-white text-xl">
+    <div class="text-white text-xl">
       {{ translated_data }}
     </div>
   </div>
