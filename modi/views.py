@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 # to generate image
 from .quote2image import convert
-
+from django.templatetags.static import static
 # Create your views here.
 
 
@@ -34,7 +34,7 @@ def translate(request):
         height=450)
 
     # Save The Image as a Png file
-    generated_image = img.save("staticfiles/images/generated_images/quote.png")
+    generated_image = img.save('staticfiles/images/generated_images/quote.png')
 
     context = {
         "translated_data": translated_data.text,
@@ -45,3 +45,6 @@ def translate(request):
 
 def translated_data(request):
     return render(request, 'translate/translated_data.html')
+
+
+
