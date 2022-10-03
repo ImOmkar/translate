@@ -1,13 +1,35 @@
 <script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
   href="https://fonts.googleapis.com/css2?family=Noto+Sans+Modi&display=swap"
   rel="stylesheet"
 />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rozha+One&display=swap" rel="stylesheet"> 
+
 <style>
   * {
     font-family: "Noto Sans Modi", sans-serif;
+    font-family: 'Rozha One', serif;
   }
   [x-cloak] {
     display: none;
+  }
+  .htmx-indicator{
+    display:none;
+    transition: opacity 500ms ease-in;
+  }
+  .htmx-request .htmx-indicator{
+      display:inline;
+  }
+  .htmx-request.htmx-indicator{
+      display:inline;
+  }
+  lottie-player {
+    position: absolute;
   }
 </style>

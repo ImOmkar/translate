@@ -5,6 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{% block title %}{% endblock title %}</title>
     
     <!--meta tags-->
@@ -30,21 +31,11 @@
     <meta property="twitter:image" content="{% static 'images/preview.png' %}">
     <!--meta tags-->
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <script src="https://cdn.tailwindcss.com"></script>
+    
+    
     {% include 'css_cdns/css.html' %}
   </head>
-  <body class="bg-gray-900">
-    <!--
-  This component uses @tailwindcss/forms
-
-  yarn add @tailwindcss/forms
-  npm install @tailwindcss/forms
-
-  plugins: [require('@tailwindcss/forms')]
--->
+  <body class="bg-gray-900 antialiased">
 
     <header class="shadow-sm">
       <nav

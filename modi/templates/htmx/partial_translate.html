@@ -2,8 +2,8 @@
 
 <label
   for="message"
-  class="block mb-2 text-xl text-center text-white font-bold"
-  >देवनागरीलिपीतून मोडिलिपीत रूपांतर करा.</label
+  class="block mb-2 text-3xl text-center text-white font-bold"
+  >देवनागरीलिपीतून मोडीलिपीत रूपांतर करा.</label
 >
 <form x-cloak x-data="{ translate_form: '' }">
   {% csrf_token %}
@@ -14,7 +14,7 @@
       x-model="translate_form"
       name="text_data"
       id="message"
-      class="resize-none block bg-gray-900 text-white w-full focus:outline-none p-1 text-xl"
+      class="resize-none block bg-gray-900 text-white w-full focus:outline-none p-1 text-2xl"
       placeholder="तुमचा मजकूर येथे लिहा..."
       required
     ></textarea>
@@ -24,7 +24,7 @@
       hx-target="#translated_text"
       hx-swap="outerHTML"
       type="submit"
-      class="w-full bg-blue-500 p-3 rounded-2xl text-white font-bold"
+      class="w-full bg-blue-500 p-3 rounded-2xl text-white font-bold text-xl"
       :class="(translate_form.trim().length > 0) ? 'px-6 py-2.5 bg-blue-500 rounded-2xl' : 'bg-gray-200 cursor-not-allowed text-gray-400'">
       रूपांतर करा  
       <svg class="htmx-indicator animate-spin mx-2 h-5 w-5 text-white inline-block" fill="none" viewBox="0 0 24 24">

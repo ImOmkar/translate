@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 # to generate image
 from .quote2image import convert
-from django.templatetags.static import static
+from django.contrib import messages
 # Create your views here.
 
 
@@ -35,6 +35,7 @@ def translate(request):
 
     # Save The Image as a Png file
     generated_image = img.save('staticfiles/images/generated_images/quote.png')
+    messages.success(request, "रूपांतरीत केलेला मजकूर तयार आहे. खालच्या चौकोनात, मजकूर प्रतिलिपी करण्याचा आणि चित्ररूपात साठवायचा पर्याय आहे.") 
 
     context = {
         "translated_data": translated_data.text,

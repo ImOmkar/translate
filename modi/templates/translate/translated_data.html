@@ -1,10 +1,26 @@
 {% load static %}
 
+
 <div id="translated_text">
+
   {% if translated_data %}
   <div class="block mb-2 text-xl text-white text-center font-bold">
-    मोडिलिपीतील रूपांतर
+    मोडीलिपीतील रूपांतर.
   </div>
+  
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_ki32ento.json"  background="transparent"  speed="2"  style="width: 300px; height: 300px;"    autoplay></lottie-player>
+
+  <!--django messsage-->
+  {% if messages %}
+  <ul class="messages">
+      {% for message in messages %}
+      <p class="border border-gray-600 px-6 py-4 rounded-3xl mb-2 text-white text-lg bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900">{{ message }}</p>
+      {% endfor %}
+  </ul>
+  {% endif %}
+  <!--django messsage-->
+
   <div class="border border-gray-600 px-6 py-6 rounded-3xl">
     <div class="flex justify-end">
       <button
