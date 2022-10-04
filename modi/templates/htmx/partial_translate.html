@@ -1,13 +1,9 @@
 {% load widget_tweaks %}
 
-<label
-  for="message"
-  class="block mb-2 text-3xl text-center text-white font-bold"
-  >देवनागरीलिपीतून मोडीलिपीत रूपांतर करा.</label
->
+<p class="block mb-2 text-3xl text-center text-white font-bold">देवनागरीलिपीतून मोडीलिपीत रूपांतर करा.</p>
 <form x-cloak x-data="{ translate_form: '' }">
   {% csrf_token %}
-  <div class="border border-gray-600 px-4 py-4 rounded-3xl">
+  <div class="border border-gray-600 px-4 py-4 rounded-3xl" style="{font-family: "Noto Sans Modi", sans-serif;}">
     <textarea
       x-data
       x-grow
@@ -25,7 +21,7 @@
       hx-swap="outerHTML"
       type="submit"
       class="w-full bg-blue-500 p-3 rounded-2xl text-white font-bold text-xl"
-      :class="(translate_form.trim().length > 0) ? 'px-6 py-2.5 bg-blue-500 rounded-2xl' : 'bg-gray-200 cursor-not-allowed text-gray-400'">
+      :class="(translate_form.trim().length > 0) ? 'px-6 py-2.5 bg-blue-500 rounded-2xl' : 'bg-gray-200 cursor-not-allowed text-gray-400'" :disabled="translate_form.trim().length == 0">
       रूपांतर करा  
       <svg class="htmx-indicator animate-spin mx-2 h-5 w-5 text-white inline-block" fill="none" viewBox="0 0 24 24">
         <circle class="opacity-20" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
