@@ -1,0 +1,39 @@
+{
+  "background_color": "#111827",
+  "description": "देवनागरीलिपीत लिहिलेला मजकूर मोडीलिपीत रूपांतरित करणार.",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "𑘦𑘻",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "𑘦𑘻",
+  "start_url": "/",
+  "theme_color": "#111827",
+  "icons": [
+    {
+      "src": "https://res.cloudinary.com/dwltrduan/image/upload/v1664985461/%E0%A4%AE%E0%A5%8B%E0%A4%A1%E0%A5%80/favicon-32x32_b8whcw.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "https://res.cloudinary.com/dwltrduan/image/upload/v1664985460/%E0%A4%AE%E0%A5%8B%E0%A4%A1%E0%A5%80/favicon-16x16_gli3il.png",
+      "type": "image/png",
+      "sizes": "16x16"
+    },
+    {
+      "src": "https://res.cloudinary.com/dwltrduan/image/upload/v1664985461/%E0%A4%AE%E0%A5%8B%E0%A4%A1%E0%A5%80/android-chrome-192x192_wzajck.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://res.cloudinary.com/dwltrduan/image/upload/v1664985461/%E0%A4%AE%E0%A5%8B%E0%A4%A1%E0%A5%80/android-chrome-512x512_audhqa.png",
+      "type": "image/png",
+      "sizes": "180x180"
+    },
+    {
+      "src": "https://res.cloudinary.com/dwltrduan/image/upload/v1664985460/%E0%A4%AE%E0%A5%8B%E0%A4%A1%E0%A5%80/apple-touch-icon_poawkb.png",
+      "type": "image/png",
+      "sizes": "149x149"
+    }
+  ]
+}

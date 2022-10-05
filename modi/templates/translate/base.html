@@ -12,6 +12,18 @@
     <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dwltrduan/image/upload/v1664985461/%E0%A4%AE%E0%A5%8B%E0%A4%A1%E0%A5%80/favicon-32x32_b8whcw.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/dwltrduan/image/upload/v1664985460/%E0%A4%AE%E0%A5%8B%E0%A4%A1%E0%A5%80/favicon-16x16_gli3il.png">
     
+    <!--pwa link-->
+    <script type="module">
+      import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
+      const el = document.createElement('pwa-update');
+      document.body.appendChild(el);
+    </script>
+    <!--pwa link-->
+
+    <!--menifest.json-->
+    <link rel="manifest" href="{% static 'manifest.json' %}" />
+    <!--menifest.json-->
+
     <!--meta tags-->
     <title>देवनागरीलिपीतून मोडीलिपीत | Devanagari Script To MoDi Script Converter</title>
     <meta name="title" content="देवनागरीलिपीतून मोडीलिपीत | Devanagari Script To MoDi Script Converter">

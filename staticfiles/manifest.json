@@ -1,0 +1,21 @@
+{
+  "background_color": "#ffffff",
+  "description": "देवनागरीलिपीत लिहिलेला मजकूर मोडीलिपीत रूपांतरित करणारं संकेतस्थळ. \r\n    A website that converts Devanagari Text into MoDi Script Text.",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "modilipi.onrender",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "modilipi.onrender",
+  "start_url": "/",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "https://modilipi.onrender.com/staticfiles/images/preview.png"
+    },
+    {
+      "src": "/favicon.ico",
+      "type": "image/x-icon"
+    }
+  ]
+}
