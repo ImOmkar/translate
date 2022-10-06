@@ -4,7 +4,7 @@
 <div id="translated_text">
 
   {% if translated_data %}
-  <div class="block mb-2 text-xl text-white text-center font-bold">
+  <div class="block mb-2 mt-4 text-xl text-white text-center font-bold">
     मोडीलिपीतील रूपांतर.
   </div>
   
@@ -15,7 +15,7 @@
   {% if messages %}
   <ul class="messages">
       {% for message in messages %}
-      <p class="border border-gray-600 px-6 py-4 rounded-3xl mb-2 text-white text-lg bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900">{{ message }}</p>
+      <p class="border border-gray-600 px-6 py-4 rounded-3xl mb-2 text-white text-center text-lg bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900">{{ message }}</p>
       {% endfor %}
   </ul>
   {% endif %}

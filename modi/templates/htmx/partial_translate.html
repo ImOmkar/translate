@@ -10,7 +10,7 @@
       x-model="translate_form"
       name="text_data"
       id="message"
-      class="resize-none block bg-gray-900 text-white w-full focus:outline-none p-1 text-lg"
+      class="resize-none block bg-gray-900 text-white w-full focus:outline-none p-1 text-lg font-mono"
       placeholder="तुमचा मजकूर येथे लिहा..."
       required
     ></textarea>
@@ -29,4 +29,5 @@
       </svg>
     </button>
   </div>
+  <a hx-boost="true" class="float-right"  href="{% url 'about' %}"><small class="text-white hover:underline text-lg">कसं वापरावं ?</small></a>
 </form>

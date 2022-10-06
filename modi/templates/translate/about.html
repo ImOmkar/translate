@@ -1,0 +1,68 @@
+{% extends 'translate/base.html' %} 
+{% block title %}आमच्याबद्दल थोडक्यात.. {% endblock title %}
+
+{% block content %}
+
+<div class="bg-gray-900 py-6 sm:py-8 lg:py-12">
+  <div class="max-w-screen-md px-4 md:px-8 mx-auto">
+
+    <a hx-boost="true" href="{% url 'home' %}" class="text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 p-1 hover:bg-gray-800 rounded-full">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75" />
+        </svg>
+    </a>
+
+    <h1
+      class="text-white text-2xl sm:text-3xl font-bold text-center mb-4 md:mb-6"
+    >
+      ह्या संकेतस्थळाबद्दल थोडक्यात...
+    </h1>
+
+    <div class="relative mb-6 md:mb-8">
+      <img
+        src="https://res.cloudinary.com/dwltrduan/image/upload/v1664985483/%E0%A4%AE%E0%A5%8B%E0%A4%A1%E0%A5%80/preview_s8uxvn.png"
+        loading="lazy"
+        alt="graphics by Omkar Parab"
+        class="w-full object-cover rounded-3xl"
+      />
+    </div>
+
+    <p class="text-white sm:text-lg mb-3 font-mono">
+      देवनागरी लिपीतील मजकूराचे, मराठीच्या जुन्या
+      <span class="text-orange-500 text-2xl">मोडी</span> लिपीत रूपांतर करून तो इतर ठिकाणी वापरता यावा यासाठी हे संकेतस्थळ तयार करण्यात आले आहे.
+      <br />
+    </p>
+
+    <hr class="my-8 border-dashed"></hr>
+
+    <p class="text-white text-2xl mb-3">कसं वापरावं ?</p>
+    <ul>
+        <li> 
+            <p class="text-white my-3 ml-3 text-lg font-mono">👉 देवनागरीलिपीतील मजकूर लिहिण्याची चौकट. </p>   
+            <img class="w-full rounded-3xl border border-2" src="https://res.cloudinary.com/dwltrduan/image/upload/v1665064840/%E0%A4%AE%E0%A5%8B%E0%A4%A1%E0%A5%80/Screenshot_24_kbnawu.png">
+        </li>
+        <li> 
+            <p class="text-white my-3 ml-3 text-lg font-mono">👉 रूपांतरीत मजकूर वापरण्याचे पर्याय. </p>   
+            <img class="w-full rounded-3xl border border-2" src="https://res.cloudinary.com/dwltrduan/image/upload/v1665065892/%E0%A4%AE%E0%A5%8B%E0%A4%A1%E0%A5%80/My_project-1_3_l6pgba.png">
+        </li>
+    </ul>
+    
+    <hr class="my-8 border-dashed"></hr>
+    <h2 class="text-white text-2xl font-semibold mb-2 md:mb-4">
+      मोडीलिपीत रूपांतरासाठी लागलेली साधनं,
+    </h2>
+
+    <ul class="list-disc list-inside text-gray-300 sm:text-lg mb-6 md:mb-8 ml-1">
+      <li><a class="text-cyan-500 hover:underline font-mono" href="https://aksharamukha.appspot.com/web-api">अक्षरमुख Web API</a></li>
+      <li><a class="text-cyan-500 hover:underline font-mono" href="https://fonts.google.com/noto/specimen/Noto+Sans+Modi?query=noto+sans+modi">गुगल फॉन्ट - Noto Sans Modi</a></li>
+    </ul>
+
+    <hr class="my-8 border-dashed"></hr>
+
+    <h2 class="text-white text-xl text-center sm:text-2xl font-semibold mb-2 md:mb-4">
+      धन्यवाद 
+    </h2>
+  </div>
+</div>
+
+{% endblock content %}

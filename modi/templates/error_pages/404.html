@@ -4,8 +4,25 @@
 {% block content %}
 
 
-<div class="mt-44">
-    <img src="{% static 'images/404.jpg' %}" class="md:max-w-3xl lg:md:max-w-3xl w-full mx-auto rounded-3xl">
+
+<div class="bg-gray-900 py-6 sm:py-8 lg:py-12">
+    <div class="max-w-screen-md px-4 md:px-8 mx-auto">
+  
+      <a hx-boost="true" href="{% url 'home' %}" class="text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 p-1 hover:bg-gray-800 rounded-full">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75" />
+          </svg>
+      </a>
+
+      <div class="relative mb-6 md:mb-8 mt-4">
+        <img
+          src="{% static 'images/404.jpg' %}"
+          loading="lazy"
+          alt="graphics by Omkar Parab"
+          class="w-full object-cover rounded-3xl"
+        />
+      </div>
+    </div>
 </div>
 
 
