@@ -34,6 +34,11 @@
       "src": "https://res.cloudinary.com/dwltrduan/image/upload/v1664985460/%E0%A4%AE%E0%A5%8B%E0%A4%A1%E0%A5%80/apple-touch-icon_poawkb.png",
       "type": "image/png",
       "sizes": "149x149"
+    },
+    {
+      "src": "https://res.cloudinary.com/dwltrduan/image/upload/v1664985461/%E0%A4%AE%E0%A5%8B%E0%A4%A1%E0%A5%80/android-chrome-512x512_audhqa.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ]
 }
