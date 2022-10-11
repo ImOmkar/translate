@@ -1,9 +1,10 @@
+import os
 import requests
 from django.shortcuts import render
-
 # to generate image
-from .quote2image import convert
+from .quote2image import convert, get_base64
 from django.contrib import messages
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Create your views here.
 
 
@@ -13,15 +14,12 @@ def error_404_view(request, exception):
     return render(request, 'error_pages/404.html')
 #error view
 
-
-
 def about(request):
     return render(request, 'translate/about.html')
 
-    
-
 def home(request):
     return render(request, 'translate/home.html')
+
 
 def translate(request):
     text = request.POST.get('text_data')
@@ -31,20 +29,21 @@ def translate(request):
     img=convert(
         quote=translated_data.text,
         fg="white",
-        image="staticfiles/images/background_img.jpg",
-        border_color="black",
-        font_size=50,
-        font_file=None,
-        width=1080,
-        height=450)
+        image="media/background_images/background1.png",
+        border_color="white",
+        font_size=70,
+        width=1200,
+        height=670)
 
     # Save The Image as a Png file
-    generated_image = img.save('staticfiles/images/generated_images/quote.png')
+    generated_image = img.save('media/quote.png')
+    base_image = "data:image/png;base64," + get_base64(os.path.join(BASE_DIR, 'media', 'quote.png'))
     messages.success(request, "रूपांतरीत केलेला मजकूर तयार आहे.") 
 
     context = {
         "translated_data": translated_data.text,
-        "generated_image": generated_image
+        "generated_image": generated_image,
+        'base_image': base_image
     }
     return render(request, 'translate/translated_data.html', context)
 

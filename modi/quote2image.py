@@ -1,5 +1,6 @@
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
-import random, math
+from io import BytesIO
+import base64
 
 def convert(quote, fg, image, border_color, font_file=None, font_size=None,width=None,height=None):
     x1 = width if width else 612
@@ -7,7 +8,7 @@ def convert(quote, fg, image, border_color, font_file=None, font_size=None,width
         
     sentence = f"{quote}"
     
-    quote = ImageFont.truetype(font_file if font_file else "static/fonts/NotoSansModi-Regular.ttf", font_size if font_size else 32)
+    quote = ImageFont.truetype(r"static/fonts/NotoSansModi-Regular.ttf", 70, layout_engine=ImageFont.LAYOUT_RAQM)
 
     img = Image.new("RGB", (x1, y1), color=(255,255,255))
 
@@ -56,3 +57,11 @@ def convert(quote, fg, image, border_color, font_file=None, font_size=None,width
     d.text((qx, qy), fresh_sentence, align="center", font=quote, fill=fg)
 
     return img
+
+
+def get_base64(image):
+    img = Image.open(image)
+    buffered = BytesIO()
+    img.save(buffered, format="PNG")
+    img_str = base64.b64encode(buffered.getvalue())
+    return img_str.decode()
