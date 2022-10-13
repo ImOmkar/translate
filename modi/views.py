@@ -1,4 +1,5 @@
 import os
+import glob, random
 import requests
 from django.shortcuts import render
 # to generate image
@@ -25,11 +26,18 @@ def translate(request):
     text = request.POST.get('text_data')
     translated_data = requests.get(f'http://aksharamukha-plugin.appspot.com/api/public?source=Devanagari&target=Modi&text={text}')
 
+    #to select random .png file from the folder
+    img_files = ["media/background_images/*.png"]
+    images = glob.glob(random.choice(img_files))
+    random_image = random.choice(images)
+
     # Font Size Default to 32, Height and Width by default is 612
+    #url = "https://res.cloudinary.com/dwltrduan/image/upload/v1665494804/%E0%A4%AE%E0%A5%8B%E0%A4%A1%E0%A5%80/background_images/background2_axly32.png"
+
     img=convert(
         quote=translated_data.text,
         fg="white",
-        image="media/background_images/background1.png",
+        image=random_image, #variable holding random image
         border_color="white",
         font_size=70,
         width=1200,
