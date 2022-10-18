@@ -23,7 +23,7 @@ def home(request):
 
 
 def translate(request):
-    text = request.POST.get('text_data')
+    text = request.POST.get('text_data').replace("#", "").replace("&", "")
     translated_data = requests.get(f'http://aksharamukha-plugin.appspot.com/api/public?source=Devanagari&target=Modi&text={text}')
 
     #to select random .png file from the folder
