@@ -37,11 +37,15 @@ def translate(request):
     img=convert(
         quote=translated_data.text,
         fg="white",
-        image=random_image, #variable holding random image
+        #image=random_image, #variable holding random image
+        image=os.path.join(BASE_DIR, 'media/background_images', 'diwaळी.png'), #diwaळी sathi.
         border_color="white",
         font_size=70,
-        width=1200,
-        height=670)
+        width=2550,
+        height=3300)
+    
+    #w-1200
+    #h-670
 
     # Save The Image as a Png file
     generated_image = img.save('media/quote.png')

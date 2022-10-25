@@ -8,7 +8,7 @@ def convert(quote, fg, image, border_color, font_file=None, font_size=None,width
         
     sentence = f"{quote}"
     
-    quote = ImageFont.truetype(r"static/fonts/NotoSansModiAdvanced.ttf", 70, layout_engine=ImageFont.LAYOUT_RAQM)
+    quote = ImageFont.truetype(r"static/fonts/NotoSansModiAdvanced.ttf", 150, layout_engine=ImageFont.LAYOUT_RAQM)
 
     img = Image.new("RGB", (x1, y1), color=(255,255,255))
 
