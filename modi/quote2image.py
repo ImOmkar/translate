@@ -2,23 +2,14 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter
 from io import BytesIO
 import base64
 
-def convert(quote, fg, image, border_color, font_file=None, font_size=None,width=None,height=None):
-    #x1 = image.width
-    #y1 = image.height
+def convert(quote, fg, image, border_color):
         
     sentence = f"{quote}"
     
     quote = ImageFont.truetype(r"static/fonts/NotoSansModiAdvanced.ttf", 200, layout_engine=ImageFont.LAYOUT_RAQM)
 
-    #img = Image.new("RGB", (x1, y1), color=(255,255,255))
-
     back = Image.open(image, 'r')
     img_w, img_h = back.size
-    bg_w, bg_h = back.size
-    offset = ((bg_w - img_w) // 2, (bg_h - img_h) // 2)
-    bback=back.filter(ImageFilter.BLUR)
-    back.paste(bback, offset)
-    
     d = ImageDraw.Draw(back)
 
     sum = 0
