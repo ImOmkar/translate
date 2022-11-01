@@ -27,7 +27,7 @@ def translate(request):
     translated_data = requests.get(f'http://aksharamukha-plugin.appspot.com/api/public?source=Devanagari&target=Modi&text={text}')
 
     #to select random .png file from the folder
-    img_files = ["media/background_images/*.png"]
+    img_files = ["media/diwali_background/*.*"]
     images = glob.glob(random.choice(img_files))
     random_image = random.choice(images)
 
@@ -37,15 +37,9 @@ def translate(request):
     img=convert(
         quote=translated_data.text,
         fg="white",
-        #image=random_image, #variable holding random image
-        image=os.path.join(BASE_DIR, 'media/background_images', 'diwaळी.png'), #diwaळी sathi.
-        border_color="white",
-        font_size=70,
-        width=2550,
-        height=3300)
-    
-    #w-1200
-    #h-670
+        image=random_image, #variable holding random image
+        #image=os.path.join(BASE_DIR, 'media/background_images', 'diwali_2.jpg'), #diwaळी sathi.
+        border_color="white")
 
     # Save The Image as a Png file
     generated_image = img.save('media/quote.png')
