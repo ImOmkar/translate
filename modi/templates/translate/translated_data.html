@@ -1,8 +1,8 @@
 {% load static %}
 
 <div id="translated_text">
-  {% if translated_data %}
-  <div class="block mb-2 mt-4 text-xl text-white text-center font-bold">
+  {% if translation %}
+  <div class="block mb-2 mt-4 pt-4 text-xl text-white text-center font-bold">
     मोडीलिपीतील रूपांतर.
   </div>
 
@@ -11,7 +11,7 @@
     src="https://assets5.lottiefiles.com/packages/lf20_ki32ento.json"
     background="transparent"
     speed="2"
-    style="width: 300px; height: 300px"
+    style="width: 400px; height: 200px"
     autoplay
   ></lottie-player>
 
@@ -39,33 +39,30 @@
   >
     <div class="flex justify-end">
       <button
-        _="on click writeText('{{ translated_data }}') into the navigator's clipboard
+        _="on click writeText('{{ translation }}') into the navigator's clipboard
           put '✔️' into me wait 1s put '📋' into me"
       >
         📋
       </button>
+      <a class="p-2" href="{{ base_image }}" download>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-5 h-5 text-white"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
+          />
+        </svg>
+      </a>
     </div>
     <div class="text-white text-xl">
-      <div class="my-1">{{ translated_data|linebreaks }}</div>
-      <div>
-        <a class="absolute p-2 border-r border-b border-green-600 border-dashed focus:border-double" href="{{ base_image }}" download>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-5 h-5 text-white"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
-            />
-          </svg>
-        </a>
-        <img src="{{ base_image }}" class="w-full rounded-2xl" />
-      </div>
+      <div class="my-1">{{ translation|linebreaks }}</div>
     </div>
   </div>
   {% endif %}

@@ -2,7 +2,7 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter
 from io import BytesIO
 import base64
 
-def convert(quote, fg, image, border_color):
+def convert(quote, image):
         
     sentence = f"{quote}"
     
@@ -40,12 +40,12 @@ def convert(quote, fg, image, border_color):
     qx = img_w / 2 - x2 / 2
     qy = img_h / 2 - y2 / 2
 
-    d.text((qx-1, qy-1), fresh_sentence, align="center", font=quote, fill=border_color)
-    d.text((qx+1, qy-1), fresh_sentence, align="center", font=quote, fill=border_color)
-    d.text((qx-1, qy+1), fresh_sentence, align="center", font=quote, fill=border_color)
-    d.text((qx+1, qy+1), fresh_sentence, align="center", font=quote, fill=border_color)
+    d.text((qx-1, qy-1), fresh_sentence, align="center", font=quote, fill='white')
+    d.text((qx+1, qy-1), fresh_sentence, align="center", font=quote, fill='white')
+    d.text((qx-1, qy+1), fresh_sentence, align="center", font=quote, fill='white')
+    d.text((qx+1, qy+1), fresh_sentence, align="center", font=quote, fill='white')
 
-    d.text((qx, qy), fresh_sentence, align="center", font=quote, fill=fg)
+    d.text((qx, qy), fresh_sentence, align="center", font=quote, fill='white')
 
     return back
 
