@@ -1,12 +1,10 @@
 import os
 import glob, random
+import requests
 from django.shortcuts import render
-#from time import process_time
-
 # to generate image
-from .quote2image import convert, get_base64
 from .dev_to_modi import dev_to_modi
-
+from .quote2image import convert, get_base64
 from django.contrib import messages
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Create your views here.
@@ -27,26 +25,34 @@ def home(request):
 
 def translate(request):
     text = request.POST.get('text_data').replace("#", "").replace("&", "")
-    translation = dev_to_modi(text)
+    translated_data = dev_to_modi(text)
 
     #to select random .png file from the folder
     img_files = ["media/diwali_background/*.*"]
     images = glob.glob(random.choice(img_files))
     random_image = random.choice(images)
 
-    img=convert(quote=translation, image=random_image)
+    # Font Size Default to 32, Height and Width by default is 612
+    #url = "https://res.cloudinary.com/dwltrduan/image/upload/v1665494804/%E0%A4%AE%E0%A5%8B%E0%A4%A1%E0%A5%80/background_images/background2_axly32.png"
+
+    img=convert(
+        quote=translated_data,
+        image=random_image, #variable holding random image
+        #image=os.path.join(BASE_DIR, 'media/background_images', 'diwali_2.jpg'), #diwaळी sathi.
+        )
 
     # Save The Image as a Png file
     generated_image = img.save('media/quote.png')
     base_image = "data:image/png;base64," + get_base64(os.path.join(BASE_DIR, 'media', 'quote.png'))
-    #processing_time = process_time()
     messages.success(request, "रूपांतरीत केलेला मजकूर तयार आहे.") 
 
     context = {
-        "translation": translation,
+        "translated_data": translated_data,
+        #"generated_image": generated_image,
         'base_image': base_image
     }
     return render(request, 'translate/translated_data.html', context)
+
 
 def translated_data(request):
     return render(request, 'translate/translated_data.html')

@@ -1,4 +1,5 @@
 
+{% if base_image %}
 <div>
     <a class="absolute p-2 border-r border-b border-green-600 border-dashed focus:border-double" href="{{ base_image }}" download>
       <svg
@@ -18,3 +19,4 @@
     </a>
     <img src="{{ base_image }}" class="w-full rounded-2xl" />
 </div>
+{% endif %}

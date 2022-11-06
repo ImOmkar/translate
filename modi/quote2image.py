@@ -53,6 +53,6 @@ def convert(quote, image):
 def get_base64(image):
     img = Image.open(image)
     buffered = BytesIO()
-    img.save(buffered, format="PNG")
+    img.save(buffered, format="PNG", quality=25)
     img_str = base64.b64encode(buffered.getvalue())
     return img_str.decode()

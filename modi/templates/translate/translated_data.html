@@ -1,7 +1,7 @@
 {% load static %}
 
 <div id="translated_text">
-  {% if translation %}
+  {% if translated_data %}
   <div class="block mb-2 mt-4 pt-4 text-xl text-white text-center font-bold">
     मोडीलिपीतील रूपांतर.
   </div>
@@ -11,7 +11,7 @@
     src="https://assets5.lottiefiles.com/packages/lf20_ki32ento.json"
     background="transparent"
     speed="2"
-    style="width: 400px; height: 200px"
+    style="width: 200px; height: 200px"
     autoplay
   ></lottie-player>
 
@@ -39,7 +39,7 @@
   >
     <div class="flex justify-end">
       <button
-        _="on click writeText('{{ translation }}') into the navigator's clipboard
+        _="on click writeText('{{ translated_data }}') into the navigator's clipboard
           put '✔️' into me wait 1s put '📋' into me"
       >
         📋
@@ -62,7 +62,7 @@
       </a>
     </div>
     <div class="text-white text-xl">
-      <div class="my-1">{{ translation|linebreaks }}</div>
+      <div class="my-1">{{ translated_data|linebreaks }}</div>
     </div>
   </div>
   {% endif %}
