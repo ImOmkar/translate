@@ -28,17 +28,17 @@ def translate(request):
     translated_data = dev_to_modi(text)
 
     #to select random .png file from the folder
-    img_files = ["media/diwali_background/*.*"]
-    images = glob.glob(random.choice(img_files))
-    random_image = random.choice(images)
+    #img_files = ["media/diwali_background/*.*"]
+    #images = glob.glob(random.choice(img_files))
+    #random_image = random.choice(images)
 
     # Font Size Default to 32, Height and Width by default is 612
     #url = "https://res.cloudinary.com/dwltrduan/image/upload/v1665494804/%E0%A4%AE%E0%A5%8B%E0%A4%A1%E0%A5%80/background_images/background2_axly32.png"
 
     img=convert(
         quote=translated_data,
-        image=random_image, #variable holding random image
-        #image=os.path.join(BASE_DIR, 'media/background_images', 'diwali_2.jpg'), #diwaळी sathi.
+        #image=random_image, #variable holding random image
+        image=os.path.join(BASE_DIR, 'media/diwali_background', 'diwali_3.jpg'), #diwaळी sathi.
         )
 
     # Save The Image as a Png file
