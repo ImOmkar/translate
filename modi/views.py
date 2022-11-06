@@ -35,7 +35,7 @@ def translate(request):
     # Font Size Default to 32, Height and Width by default is 612
     #url = "https://res.cloudinary.com/dwltrduan/image/upload/v1665494804/%E0%A4%AE%E0%A5%8B%E0%A4%A1%E0%A5%80/background_images/background2_axly32.png"
 
-    img=convert(
+    '''img=convert(
         quote=translated_data,
         #image=random_image, #variable holding random image
         image=os.path.join(BASE_DIR, 'media/diwali_background', 'diwali_3.jpg'), #diwaळी sathi.
@@ -43,13 +43,13 @@ def translate(request):
 
     # Save The Image as a Png file
     generated_image = img.save('media/quote.png')
-    base_image = "data:image/png;base64," + get_base64(os.path.join(BASE_DIR, 'media', 'quote.png'))
+    base_image = "data:image/png;base64," + get_base64(os.path.join(BASE_DIR, 'media', 'quote.png'))'''
     messages.success(request, "रूपांतरीत केलेला मजकूर तयार आहे.") 
 
     context = {
         "translated_data": translated_data,
         #"generated_image": generated_image,
-        'base_image': base_image
+        #'base_image': base_image
     }
     return render(request, 'translate/translated_data.html', context)
 
