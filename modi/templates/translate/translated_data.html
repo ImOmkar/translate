@@ -2,10 +2,6 @@
 
 <div id="translated_text">
   {% if translated_data %}
-  <div class="block mb-2 mt-4 pt-4 text-xl text-white text-center font-bold">
-    मोडीलिपीतील रूपांतर.
-  </div>
-
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <lottie-player
     src="https://assets5.lottiefiles.com/packages/lf20_ki32ento.json"
@@ -15,55 +11,58 @@
     autoplay
   ></lottie-player>
 
-  <!--django messsage-->
-  {% if messages %}
-  <ul class="messages">
-    {% for message in messages %}
-    <p
-      class="border border-gray-600 px-6 py-4 rounded-3xl mb-2 text-white text-center text-lg bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900"
-    >
-      {{ message }}
-    </p>
-    {% endfor %}
-  </ul>
-  {% endif %}
-  <!--django messsage-->
+  <form class="mt-14">
 
-  <div
-    class="border border-gray-600 px-6 py-6 rounded-3xl"
-    style="
-       {
-        font-family: 'Noto Sans Modi', sans-serif;
-      }
-    "
-  >
-    <div class="flex justify-end">
-      <button
-        _="on click writeText('{{ translated_data }}') into the navigator's clipboard
-          put '✔️' into me wait 1s put '📋' into me"
-      >
-        📋
-      </button>
-      <!--<a class="p-2" href="{{ base_image }}" download>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="w-5 h-5 text-white"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
-          />
-        </svg>
-      </a>-->
+    <!--django messsage-->
+    {% if messages %}
+      {% for message in messages %}
+      <div
+        x-cloak
+        x-show="showAlertText"
+        x-data="{ showAlertText: true }"
+        x-init="setTimeout(() => showAlertText = false, 5000)"
+        role="alert"
+        class="alert border border-gray-600 px-6 py-4 rounded-3xl text-white text-center text-lg bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 mt-12 mb-2">
+          {{ message }}
+      </div>
+      {% endfor %}
+    {% endif %}
+    <!--django messsage-->
+
+    <div class="border border-gray-600 px-6 py-6 rounded-3xl"
+      style="{ font-family: 'Noto Sans Modi', sans-serif; }">
+      <div class="flex justify-end gap-2">
+        <a
+          class="cursor-pointer hover:border-b px-1 py-0.5 text-white"
+          _="on click writeText('{{ translated_data }}') into the navigator's clipboard
+            put '✔️ प्रतिलिपी केला' into me wait 1s put 'प्रतिलिपी करा' into me">
+          प्रतिलिपी करा
+        </a>
+        <button
+          class="hover:border-b px-1 py-0.5 text-white"
+          hx-post="{% url 'process_image' %}"
+          hx-target="#process_image"
+          hx-swap="outerHTML"
+          hx-indicator="#spinner"
+          type="submit">
+          चित्ररूपात मिळवा.     
+        </button>
+      </div>
+      <div class="text-white text-xl">
+        <div class="my-1">{{ translated_data|linebreaks }}</div>
+        <input type="hidden" name="modi_text" value="{{ translated_data }}">
+
+        <div id="process_image">
+          <div id="spinner" class="htmx-indicator bg-gray-800 rounded-2xl p-14 text-center m-2">
+            <svg class="animate-spin mx-2 h-5 w-5 text-white inline-block" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-20" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-2" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg> 
+          </div>
+        </div>
+
+      </div>
     </div>
-    <div class="text-white text-xl">
-      <div class="my-1">{{ translated_data|linebreaks }}</div>
-    </div>
-  </div>
+  </form>
   {% endif %}
 </div>

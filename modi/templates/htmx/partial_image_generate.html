@@ -1,22 +1,26 @@
 
+
 {% if base_image %}
-<div>
-    <a class="absolute p-2 border-r border-b border-green-600 border-dashed focus:border-double" href="{{ base_image }}" download>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
-        class="w-5 h-5 text-white"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
-        />
-      </svg>
-    </a>
-    <img src="{{ base_image }}" class="w-full rounded-2xl" />
-</div>
+  <!--django messsage-->
+    {% if messages %}
+    {% for message in messages %}
+    <div
+      x-cloak
+      x-show="showAlertImage"
+      x-data="{ showAlertImage: true }"
+      x-init="setTimeout(() => showAlertImage = false, 5000)"
+      role="alert"
+      class="alert border border-gray-600 px-6 py-4 rounded-3xl mb-2 text-white text-center text-lg bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900">
+        {{ message }}
+    </div>
+    {% endfor %}
+  {% endif %}
+  <!--django messsage-->
+  <!--django messsage-->
+  <div class="mt-2">
+      <a class="absolute p-2 m-1 rounded-2xl border-r border-b border-l border-t bg-gray-900 focus:border-double text-white" href="{{ base_image }}" download>
+        साठवा
+      </a>
+      <img src="{{ base_image }}" class="w-full rounded-2xl" />
+  </div>
 {% endif %}
