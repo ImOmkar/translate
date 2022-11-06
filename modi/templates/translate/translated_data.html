@@ -31,50 +31,55 @@
     {% endif %}
     <!--django messsage-->
 
-    <div class="border border-gray-600 px-6 py-6 rounded-3xl"
-      style="{ font-family: 'Noto Sans Modi', sans-serif; }">
+    <div class="border border-gray-600 p-2 rounded-3xl">
+
       <div class="flex justify-end gap-2">
-        <a
-          class="cursor-pointer hover:border-b px-1 py-0.5 text-white"
-          _="on click writeText('{{ translated_data }}') into the navigator's clipboard
-            put '✔️ प्रतिलिपी केला' into me wait 1s put 'प्रतिलिपी करा' into me">
-          प्रतिलिपी करा
-        </a>
-        <button
-          class="hover:border-b px-1 py-0.5 text-white"
-          hx-post="{% url 'process_image' %}"
-          hx-target="#process_image"
-          hx-swap="outerHTML"
-          hx-indicator="#spinner"
-          type="submit">
-          चित्ररूपात मिळवा.     
-        </button>
+        <div>
+          <a
+            class="cursor-pointer px-1 mx-1 border py-0.5 text-white rounded-xl"
+            _="on click writeText('{{ translated_data }}') into the navigator's clipboard
+              put '✔️ प्रतिलिपी केला' into me wait 1s put 'प्रतिलिपी करा' into me">
+            प्रतिलिपी करा
+          </a>
+          <button
+            class="px-1 py-0.5 border text-white rounded-xl"
+            hx-post="{% url 'process_image' %}"
+            hx-target="#process_image"
+            hx-swap="outerHTML"
+            hx-indicator="#spinner"
+            type="submit">
+            चित्ररूपात मिळवा.     
+          </button>
+        </div>
       </div>
 
-      <!--success animation-->
-      <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-      <lottie-player
-        src="https://assets5.lottiefiles.com/packages/lf20_ki32ento.json"
-        background="transparent"
-        speed="2"
-        style="width: 200px; height: 200px"
-        autoplay
-      ></lottie-player>
-      <!--success animation-->
+      <div class="px-6 py-6 rounded-3xl">
+  
+        <!--success animation-->
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <lottie-player
+          src="https://assets5.lottiefiles.com/packages/lf20_ki32ento.json"
+          background="transparent"
+          speed="2"
+          style="width: 200px; height: 200px"
+          autoplay
+        ></lottie-player>
+        <!--success animation-->
 
-      <div class="text-white text-xl">
-        <div class="my-1">{{ translated_data|linebreaks }}</div>
-        <input type="hidden" name="modi_text" value="{{ translated_data }}">
+        <div class="text-white text-xl">
+          <div class="my-1">{{ translated_data|linebreaks }}</div>
+          <input type="hidden" name="modi_text" value="{{ translated_data }}">
 
-        <div id="process_image">
-          <div id="spinner" class="htmx-indicator bg-gray-800 rounded-2xl p-14 text-center m-2">
-            <svg class="animate-spin mx-2 h-5 w-5 text-white inline-block" fill="none" viewBox="0 0 24 24">
-              <circle class="opacity-20" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-              <path class="opacity-2" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-            </svg> 
+          <div id="process_image">
+            <div id="spinner" class="htmx-indicator bg-gray-800 rounded-2xl p-14 text-center m-2">
+              <svg class="animate-spin mx-2 h-5 w-5 text-white inline-block" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-20" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-2" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg> 
+            </div>
           </div>
+          
         </div>
-
       </div>
     </div>
   </form>
