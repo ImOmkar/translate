@@ -19,7 +19,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = False   
+DEBUG = False    
 
 SECRET_KEY = os.environ['SECRET_KEY']
 
@@ -34,14 +34,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-
     "whitenoise.runserver_nostatic",
-
     #'django.contrib.staticfiles',    
-
     'modi',
-    'widget_tweaks',
-
     'clearcache',
 ]
 

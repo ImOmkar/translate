@@ -2,6 +2,7 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter
 from io import BytesIO
 import base64
 
+<<<<<<< HEAD
 def convert(quote, fg, image):
         
     sentence = f"{quote}"
@@ -11,6 +12,16 @@ def convert(quote, fg, image):
     back = Image.open(image, 'r')
     img_w, img_h = back.size
     
+=======
+def convert(quote, image):
+        
+    sentence = f"{quote}"
+    
+    quote = ImageFont.truetype(r"static/fonts/NotoSansModiAdvanced.ttf", 200, layout_engine=ImageFont.LAYOUT_RAQM)
+
+    back = Image.open(image, 'r')
+    img_w, img_h = back.size
+>>>>>>> 348ed57c920805ff38e5d750136666caf4cdcf5a
     d = ImageDraw.Draw(back)
 
     sum = 0
@@ -54,6 +65,6 @@ def convert(quote, fg, image):
 def get_base64(image):
     img = Image.open(image)
     buffered = BytesIO()
-    img.save(buffered, format="PNG")
+    img.save(buffered, format="PNG", quality=25)
     img_str = base64.b64encode(buffered.getvalue())
     return img_str.decode()

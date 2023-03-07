@@ -3,6 +3,7 @@ import glob, random
 import requests
 from django.shortcuts import render
 # to generate image
+from .dev_to_modi import dev_to_modi
 from .quote2image import convert, get_base64
 from django.contrib import messages
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -24,32 +25,38 @@ def home(request):
 
 def translate(request):
     text = request.POST.get('text_data').replace("#", "").replace("&", "")
-    translated_data = requests.get(f'http://aksharamukha-plugin.appspot.com/api/public?source=Devanagari&target=Modi&text={text}')
+    translated_data = dev_to_modi(text)
+    messages.success(request, "रूपांतरीत केलेला मजकूर तयार आहे.") 
+
+    context = {
+        "translated_data": translated_data,
+    }
+    return render(request, 'translate/translated_data.html', context)
+
+
+def process_image(request):
+    modi_text = request.POST.get('modi_text')
 
     #to select random .png file from the folder
-    img_files = ["media/background_images/*.png"]
+    img_files = ["media/diwali_background/*.*"]
     images = glob.glob(random.choice(img_files))
     random_image = random.choice(images)
-
-    # Font Size Default to 32, Height and Width by default is 612
-    #url = "https://res.cloudinary.com/dwltrduan/image/upload/v1665494804/%E0%A4%AE%E0%A5%8B%E0%A4%A1%E0%A5%80/background_images/background2_axly32.png"
-
+    
     img=convert(
-        quote=translated_data.text,
+        quote=modi_text,
         image=random_image, #variable holding random image
+        #image=os.path.join(BASE_DIR, 'media/diwali_background', 'diwali_3.jpg'), #diwaळी sathi.
         )
 
     # Save The Image as a Png file
     generated_image = img.save('media/quote.png')
     base_image = "data:image/png;base64," + get_base64(os.path.join(BASE_DIR, 'media', 'quote.png'))
-    messages.success(request, "रूपांतरीत केलेला मजकूर तयार आहे.") 
+    messages.success(request, "चित्र तयार आहे.") 
 
     context = {
-        "translated_data": translated_data.text,
-        "generated_image": generated_image,
         'base_image': base_image
     }
-    return render(request, 'translate/translated_data.html', context)
+    return render(request, 'htmx/partial_image_generate.html', context)
 
 
 def translated_data(request):
