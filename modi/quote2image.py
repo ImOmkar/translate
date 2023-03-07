@@ -2,31 +2,23 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter
 from io import BytesIO
 import base64
 
-def convert(quote, fg, image, border_color, font_file=None, font_size=None,width=None,height=None):
-    x1 = width if width else 612
-    y1 = height if height else 612
+def convert(quote, fg, image):
         
     sentence = f"{quote}"
     
     quote = ImageFont.truetype(r"static/fonts/NotoSansModiAdvanced.ttf", 70, layout_engine=ImageFont.LAYOUT_RAQM)
 
-    img = Image.new("RGB", (x1, y1), color=(255,255,255))
-
     back = Image.open(image, 'r')
     img_w, img_h = back.size
-    bg_w, bg_h = img.size
-    offset = ((bg_w - img_w) // 2, (bg_h - img_h) // 2)
-    bback=back.filter(ImageFilter.BLUR)
-    img.paste(bback, offset)
     
-    d = ImageDraw.Draw(img)
+    d = ImageDraw.Draw(back)
 
     sum = 0
     for letter in sentence:
         sum += d.textsize(letter, font=quote)[0]
     average_length_of_letter = sum / len(sentence)
 
-    number_of_letters_for_each_line = (x1 / 1.618) / average_length_of_letter
+    number_of_letters_for_each_line = (img_w / 1.618) / average_length_of_letter
     incrementer = 0
     fresh_sentence = ""
 
@@ -46,17 +38,17 @@ def convert(quote, fg, image, border_color, font_file=None, font_size=None,width
     x2 = dim[0]
     y2 = dim[1]
 
-    qx = x1 / 2 - x2 / 2
-    qy = y1 / 2 - y2 / 2
+    qx = img_w / 2 - x2 / 2
+    qy = img_h / 2 - y2 / 2
 
-    d.text((qx-1, qy-1), fresh_sentence, align="center", font=quote, fill=border_color)
-    d.text((qx+1, qy-1), fresh_sentence, align="center", font=quote, fill=border_color)
-    d.text((qx-1, qy+1), fresh_sentence, align="center", font=quote, fill=border_color)
-    d.text((qx+1, qy+1), fresh_sentence, align="center", font=quote, fill=border_color)
+    d.text((qx-1, qy-1), fresh_sentence, align="center", font=quote, fill='white')
+    d.text((qx+1, qy-1), fresh_sentence, align="center", font=quote, fill='white')
+    d.text((qx-1, qy+1), fresh_sentence, align="center", font=quote, fill='white')
+    d.text((qx+1, qy+1), fresh_sentence, align="center", font=quote, fill='white')
 
-    d.text((qx, qy), fresh_sentence, align="center", font=quote, fill=fg)
+    d.text((qx, qy), fresh_sentence, align="center", font=quote, fill='white')
 
-    return img
+    return back
 
 
 def get_base64(image):

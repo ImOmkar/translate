@@ -36,12 +36,8 @@ def translate(request):
 
     img=convert(
         quote=translated_data.text,
-        fg="white",
         image=random_image, #variable holding random image
-        border_color="white",
-        font_size=70,
-        width=1200,
-        height=670)
+        )
 
     # Save The Image as a Png file
     generated_image = img.save('media/quote.png')
