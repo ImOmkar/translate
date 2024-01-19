@@ -21,10 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 DEBUG = False    
 
-SECRET_KEY = os.environ['SECRET_KEY']
+# SECRET_KEY = os.environ['SECRET_KEY']
+
+SECRET_KEY = '6c456c6dd02244402f80bb037c24cea35dd37e7994932c0a'
 
 # ALLOWED_HOSTS = ['*', '.vercel.app']
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['.vercel.app', '*']
 
 # Application definition
 
