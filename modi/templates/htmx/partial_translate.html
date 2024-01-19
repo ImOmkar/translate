@@ -12,7 +12,7 @@
       placeholder="तुमचा मजकूर येथे लिहा..."
       required
     ></textarea>
-    <!-- <button
+    <button
       id="translate_button"
       hx-post="{% url 'translate' %}"
       hx-target="#translated_text"
@@ -22,7 +22,7 @@
       class="w-full bg-blue-500 p-3 rounded-2xl text-white font-bold text-lg"
       :class="(translate_form.trim().length > 0) ? 'px-6 py-2.5 bg-blue-500 rounded-2xl' : 'bg-gray-200 cursor-not-allowed text-gray-400'" :disabled="translate_form.trim().length == 0">
       रूपांतर करा  
-    </button> -->
+    </button>
   </div>
   <a hx-boost="true" class="float-right"  href="{% url 'about' %}"><small class="text-white hover:underline text-lg">कसं वापरावं ?</small></a>
 </form>
