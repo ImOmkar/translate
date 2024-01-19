@@ -2,24 +2,6 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter
 from io import BytesIO
 import base64
 
-def convert(quote, fg, image):
-        
-    sentence = f"{quote}"
-    
-    quote = ImageFont.truetype(r"static/fonts/NotoSansModiAdvanced.ttf", 70, layout_engine=ImageFont.LAYOUT_RAQM)
-
-    back = Image.open(image, 'r')
-    img_w, img_h = back.size
-    
-
-def convert(quote, image):
-        
-    sentence = f"{quote}"
-    
-    quote = ImageFont.truetype(r"static/fonts/NotoSansModiAdvanced.ttf", 200, layout_engine=ImageFont.LAYOUT_RAQM)
-
-    back = Image.open(image, 'r')
-    img_w, img_h = back.size
 
 def convert(quote, image):
         
@@ -64,8 +46,6 @@ def convert(quote, image):
     d.text((qx+1, qy-1), fresh_sentence, align="center", font=quote, fill='white')
     d.text((qx-1, qy+1), fresh_sentence, align="center", font=quote, fill='white')
     d.text((qx+1, qy+1), fresh_sentence, align="center", font=quote, fill='white')
-
-    d.text((qx, qy), fresh_sentence, align="center", font=quote, fill='white')
 
     return back
 
