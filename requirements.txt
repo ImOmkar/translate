@@ -35,3 +35,4 @@ wcwidth==0.1.9
 whitenoise==6.2.0
 wrapt==1.14.1
 django-clearcache==1.2.1
+python-dotenv==0.21.1
